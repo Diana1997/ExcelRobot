@@ -4,12 +4,11 @@ namespace ExcelRobot.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class ImportController : ControllerBase
 {
-    
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    public IActionResult Index()
     {
-        return null;
+        return Ok();
     }
 }
