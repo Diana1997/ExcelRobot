@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ExcelRobot.BL.Commands.ImportDataToExcel;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ExcelRobot.Controllers;
 
@@ -6,9 +7,10 @@ namespace ExcelRobot.Controllers;
 [Route("[controller]")]
 public class ImportController : ControllerBase
 {
-    [HttpGet]
-    public IActionResult Index()
+    [HttpPost]
+    public IActionResult Index(ImportDataToExcelCommand command)
     {
-        return Ok();
+        var response = new ImportDataToExcelCommandHandler().Handle(command);
+        return Ok(response);
     }
 }

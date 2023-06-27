@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <IsPackable>false</IsPackable>
         <SpaRoot>ClientApp\</SpaRoot>
         <SpaProxyServerUrl>https://localhost:44430</SpaProxyServerUrl>
@@ -11,8 +11,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="EPPlus" Version="6.2.6" />
         <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="7.0.5" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     </ItemGroup>
 
     <ItemGroup>
