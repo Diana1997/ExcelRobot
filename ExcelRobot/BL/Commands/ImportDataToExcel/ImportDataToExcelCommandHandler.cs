@@ -39,7 +39,7 @@ public class ImportDataToExcelCommandHandler
                     values += $"(@Value{i + 1})";
                 }
 
-                if (i == 0)
+                else if (i == 0)
                 {
                     insertQuery += $"( {tableColumns[i]},";
                     values += $"( @Value{i + 1}, ";

@@ -1,0 +1,46 @@
+<form [formGroup]="form">
+  <div>
+    <label for="start">Start row</label>
+    <input type="number" id="start" formControlName="start" class="form-control">
+  </div>
+  <div>
+    <label for="sheet">Sheet:</label>
+    <input type="number" id="sheet" formControlName="sheet" class="form-control">
+  </div>
+  <div>
+    <label for="rows">Rows count</label>
+    <input type="number" id="rows" formControlName="rows" class="form-control">
+  </div>
+  <div>
+    <label for="path">File absolute path </label>
+    <input type="text" id="path" formControlName="path" class="form-control">
+  </div>
+  <div>
+    <label for="connectionString">Database connection string:</label>
+    <input type="text" id="connectionString" formControlName="connectionString" class="form-control">
+  </div>
+  <div>
+    <label for="table">Table name</label>
+    <input type="text" id="table" formControlName="table" class="form-control">
+  </div>
+  <div formArrayName="columns">
+    <div *ngFor="let column of columns.controls; let i = index" [formGroupName]="i">
+      <label for="column{{ i }}">Column {{ i + 1 }}</label>
+      <input type="text" id="column{{ i }}" formControlName="name" class="form-control">
+      <label for="type{{ i }}">Type</label>
+      <div class="d-flex">
+        <select id="type{{ i }}" formControlName="type" class="form-control">
+          <option value="">Select</option>
+          <option value="string">String</option>
+          <option value="boolean">Boolean</option>
+          <option value="int">Int</option>
+          <option value="datetime">Datetime</option>
+        </select>
+        <button type="button" (click)="removeColumn(i)" class="btn btn-primary">Remove</button>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <button type="button" (click)="addColumn()" class="btn btn-primary">Add Column</button>
+  </div>
+</form>
